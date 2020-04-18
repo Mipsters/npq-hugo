@@ -1,3 +1,8 @@
+:root {
+    --sidenav-open-width: 200px;
+    --sidenav-close-width: 0px;
+}
+
 * {
     scrollbar-color: #2a2c2e #1c1e1f;
 }
@@ -6,7 +11,7 @@
     background-color: #1C1E1F;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background-color: #2A2C2E;
 }
 
@@ -15,13 +20,13 @@
 }
 
 html, body {
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
     font-size: 17px;
     line-height: 1.6;
     height: 100%;
     margin: 0px;
-    background-color:#1A1C1D;
-    color : #D8D6D0;
+    background-color: #1A1C1D;
+    color: #D8D6D0;
 }
 
 a {
@@ -34,7 +39,7 @@ a:hover {
 }
 
 aside {
-    background-color:rgb(45, 49, 51);
+    background-color: rgb(45, 49, 51);
     height: 100%;
     width: 200px;
     z-index: 1;
@@ -50,15 +55,15 @@ aside {
 }
 
 aside a {
-    color:rgb(238, 238, 238);
+    color: rgb(238, 238, 238);
 }
 
-aside i[class^="fa"]{
+aside i[class^="fa"] {
     padding: 0em 0.4em 0em 0em;
 }
 
 aside header {
-    background-color:#23282E;
+    background-color: #23282E;
     text-align: center;
     display: flex;
     align-items: center;
@@ -67,12 +72,11 @@ aside header {
     border-bottom: 1px solid #3D3D3D;
 }
 
-aside header img{
+aside header img {
     margin-top: 20px;
     min-width: 150px;
     max-width: 150px;
     border-radius: 5px;
-
 }
 
 aside a:hover {
@@ -87,6 +91,7 @@ aside nav {
     align-items: center;
     padding: 20px 0px 0px 0px;
     margin: 0px;
+    font-size: x-large;
 }
 
 aside nav a {
@@ -101,7 +106,7 @@ aside nav a {
 }
 
 aside nav a:hover {
-    background-color:rgb(48, 75, 102);
+    background-color: rgb(48, 75, 102);
 }
 
 #branding {
@@ -111,28 +116,49 @@ aside nav a:hover {
     color: rgb(188, 188, 196);
 }
 
-#npq{
-    color: rgb(119, 125, 143); 
+#npq {
+    color: rgb(119, 125, 143);
+}
+
+#main {
+    margin-left: var(--sidenav-open-width);
+}
+
+.sidenav-closed #main {
+    margin-left: var(--sidenav-close-width);
+}
+
+#sidenav {
+    width: var(--sidenav-open-width);
+}
+
+.sidenav-closed #sidenav {
+    width: var(--sidenav-close-width);
 }
 
 #closebtn {
     transition: 0.3s;
     border-radius: 7px;
     position: fixed;
-    left: 200px;
+    left: var(--sidenav-open-width);
     top: 0px;
     padding: 10px;
-    color:rgba(238, 238, 238, 0.664);   
+    color: rgba(238, 238, 238, 0.664);
     background-color: rgba(61, 61, 61, 0.555);
+}
+
+.sidenav-closed #closebtn {
+    left: var(--sidenav-close-width);
 }
 
 .list-item {
     border: 1px solid #3D3D3D;
     border-radius: 3px;
     padding: 10px;
-    background-color:rgb(39, 41, 43);
+    background-color: rgb(39, 41, 43);
 }
-.list-item+.list-item{
+
+.list-item+.list-item {
     margin-top: 10px;
 }
 
@@ -146,8 +172,8 @@ aside nav a:hover {
 }
 
 .meta {
-   color: rgb(156, 151, 143);
-   font-size: small;
+    color: rgb(156, 151, 143);
+    font-size: small;
 }
 
 main {
@@ -156,19 +182,19 @@ main {
     margin-left: 200px;
     padding: 0px;
     height: 100%;
-    transition: 0.3s; 
+    transition: 0.3s;
 }
 
 #random-meme{
     font-size: 20px;
 }
- 
-button{
+
+button {
     padding: 15px 32px;
     border: none;
     margin: 5px;
     font-size: 16px;
-    color: white;  
+    color: white;
 }
 
 .button-red {
@@ -180,15 +206,15 @@ button{
 }
 
 .content {
-    width : 90%;
-    margin:0px auto auto auto;
+    width: 90%;
+    margin: 0px auto auto auto;
     word-break: break-word;
 }
 
 table {
     border-collapse: collapse;
 }
-  
+
 table, th, td {
     border: 1px solid rgb(97, 96, 96);
 }
@@ -214,11 +240,13 @@ h1, h2, h3 {
     margin: 20px;
     padding-bottom: 5px;
 }
-.spacer{
+
+.spacer {
     height: 50px;
 }
 
 /* code  */
+
 pre {
     overflow: auto;
     background-color: #2C2F30;
@@ -251,23 +279,22 @@ blockquote {
     border-top: 1px solid #3D3D3D;
 }
 
-
-.post p{
-    margin:4px 0px;
+.post p {
+    margin: 4px 0px;
 }
 
-.post-footer{
+.post-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.section{
-    display:flex;
+.section {
+    display: flex;
     flex-direction: column;
 }
 
-.section-title{
+.section-title {
     margin: 20px;
     font-size: 25px;
     text-align: center;
@@ -283,22 +310,23 @@ blockquote {
     padding-top: 30px;
     border-top: 1px solid #3D3D3D;
 }
-.nav-top:hover{
-   text-decoration: none;
+
+.nav-top:hover {
+    text-decoration: none;
 }
 
 .grayed-out {
-    color: rgb(70, 69, 69) ;
+    color: rgb(70, 69, 69);
 }
 
-footer{
+footer {
     padding: 15px 30px;
     margin-top: 40px;
     border-top: 1px solid #3D3D3D;
-    background-color:rgb(30, 34, 39) ;
+    background-color: rgb(30, 34, 39);
 }
 
-.footer-content{
+.footer-content {
     width: 70%;
     margin: auto;
     display: flex;
@@ -308,7 +336,7 @@ footer{
     justify-content: center;
 }
 
-.copyright{
+.copyright {
     text-align: center;
 }
 
@@ -329,8 +357,8 @@ footer{
 }
 
 .contact-form input, .contact-form button, .contact-form textarea {
-    color : #D8D6D0;
-    background-color:#181A1B ;
+    color: #D8D6D0;
+    background-color: #181A1B;
     border-radius: 3px;
     border: 1px solid #3D3D3D;
     padding: 10px;
@@ -344,53 +372,42 @@ footer{
     width: 50%;
 }
 
-.contact-form button{
+.contact-form button {
     padding: 15px 32px;
     height: auto;
     width: auto;
 }
 
-
-/* .footer-phone{
-    margin-left: 20px;
-}
-.footer-mail{
-    margin-right: 20px;
-
-} */
-
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
     #sidenav {
         width: 0px;
     }
     #main {
-        margin-left: 0px;
+        margin-left: var(--sidenav-close-width);
     }
     #closebtn {
-        left:0px;
+        left: 0px;
     }
     .content {
-        width : 95%;
-        margin:0px auto auto auto;
+        width: 95%;
+        margin: 0px auto auto auto;
     }
-
-    .footer-content{
+    .footer-content {
         flex-direction: column;
     }
-
     .contact-info {
         flex-direction: row;
     }
 }
 
 @media only screen and (max-width: 1000px) {
-    .footer-content{
+    .footer-content {
         width: 100%;
     }
 }
 
 @media only screen and (max-width: 420px) {
-    .contact-info{
+    .contact-info {
         flex-direction: column;
         align-items: center;
     }
@@ -398,8 +415,7 @@ footer{
 
 @media only screen and (min-width: 1200px) {
     .content {
-        width : 70%;
-        margin:0px auto auto auto;
+        width: 70%;
+        margin: 0px auto auto auto;
     }
-
 }
