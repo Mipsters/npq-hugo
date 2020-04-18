@@ -1,5 +1,6 @@
 <footer>
 <div class="footer-content">
+{{ if or .Site.Params.mail .Site.Params.phone }}
 <div class="contact-info">
     {{with .Site.Params.mail}}
         <div class="footer-mail">
@@ -11,6 +12,7 @@
     </div>
     {{end}}
 </div>
+{{ end }}
 {{with .Site.Copyright}}
 <p class="copyright meta">{{.}}</p>
 {{end}}
