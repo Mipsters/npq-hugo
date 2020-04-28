@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ if ne .Site.Params.displayRecent false }}
 <div class="section">
-    <div class="section-title">recent</div>
+    <div class="section-title">Recent</div>
     {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
     {{ range first (default  4 .Site.Params.recentMax) (where $pages "Section" "ne" .Site.Params.microBlogSection) }}
     <div class="list-item">
@@ -27,28 +27,31 @@
 
 {{ if .Site.Params.displayMicroBlog }}
 <div class="section">
-    <div class="section-title">μblog</div>
+    <div class="section-title">Blog</div>
     <div class="posts">
         {{ range where (where site.RegularPages "Type" "in" site.Params.microBlogSection) "Params.pinned" true }}
         <div class="post">
             <div class="meta pinned"> <i class="fas fa-thumbtack"></i> pinned </div>
             <div class="post-content">
-                {{.Content}}
+                <a href="{{.URL}}">{{.Content}}</a>
             </div>
-            <div class="meta post-footer"> <span>{{.Date.Format "Jan 2 2006 03:04 UTC-07"}}</span> <a href="{{.URL}}"><i
-                        class="fas fa-link"></i> link</a></div>
+            <div class="meta">
+                <i class="far fa-calendar-alt" aria-hidden="true"></i> {{.Date.Format "Jan 2 2006 03:04 UTC-07"}}
+            </div>
         </div>
         {{ end }}
+
         {{ range where (where site.RegularPages "Type" "in" site.Params.microBlogSection) "Params.pinned" "ne" true}}
         <div class="post">
             {{if ne .Params.pinned nil}}
             <div class="meta pinned"> <i class="fas fa-thumbtack"></i> pinned </div>
             {{ end }}
             <div class="post-content">
-                {{.Content}}
+                <a href="{{.URL}}">{{.Content}}</a>
             </div>
-            <div class="meta post-footer"> <span>{{.Date.Format "Jan 2 2006 03:04 UTC-07"}}</span> <a href="{{.URL}}"><i
-                        class="fas fa-link"></i> link</a></div>
+            <div class="meta">
+                <i class="far fa-calendar-alt" aria-hidden="true"></i> {{.Date.Format "Jan 2 2006 03:04 UTC-07"}}
+            </div>
         </div>
         {{ end }}
     </div>
